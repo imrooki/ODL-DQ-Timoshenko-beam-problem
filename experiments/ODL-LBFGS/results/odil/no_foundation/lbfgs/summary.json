@@ -1,0 +1,55 @@
+{
+  "scenario": "no_foundation",
+  "k1": 0.0,
+  "k2": 0.0,
+  "optimizer": "lbfgs",
+  "lr": 0.8,
+  "max_iter_linear": 30000,
+  "max_iter_nonlinear": 50000,
+  "linear": {
+    "w_max": 0.5211268811834757,
+    "R_PDE_norm": 5.297068412919511e-08,
+    "iterations": 347,
+    "final_loss": 8.440733774890084e-10,
+    "elapsed_s": 3.6127407550811768
+  },
+  "nonlinear": {
+    "w_max": 0.5190163237396472,
+    "R_PDE_norm": 0.02661889507904424,
+    "iterations": 50000,
+    "final_loss": 5.450588607715973e-05,
+    "elapsed_s": 1907.5494973659515
+  },
+  "nonlinear_attempts": [
+    {
+      "attempt": 1,
+      "iterations": 50000,
+      "elapsed_s": 633.8791525363922,
+      "final_loss": 5.450588607715973e-05,
+      "w_max": 0.5190163237396472,
+      "physical_valid": true,
+      "selected": true
+    },
+    {
+      "attempt": 2,
+      "iterations": 50000,
+      "elapsed_s": 638.6335878372192,
+      "final_loss": 5.450588607715973e-05,
+      "w_max": 0.5190163237396472,
+      "physical_valid": true,
+      "selected": false
+    },
+    {
+      "attempt": 3,
+      "iterations": 50000,
+      "elapsed_s": 635.0341851711273,
+      "final_loss": 5.450588607715973e-05,
+      "w_max": 0.5190163237396472,
+      "physical_valid": true,
+      "selected": false
+    }
+  ],
+  "displacement_csv": "D:\\Desktop\\Work_of_PhD\\Work_2\\ODIL_Timoshenko_Elastic_foundation_FSDT_work\\Opensource_1-2\\experiments\\ODL-LBFGS\\results\\odil\\no_foundation\\lbfgs\\data\\displacement.csv",
+  "loss_history_csv": "D:\\Desktop\\Work_of_PhD\\Work_2\\ODIL_Timoshenko_Elastic_foundation_FSDT_work\\Opensource_1-2\\experiments\\ODL-LBFGS\\results\\odil\\no_foundation\\lbfgs\\data\\loss_history.csv",
+  "nonlinear_attempts_csv": "D:\\Desktop\\Work_of_PhD\\Work_2\\ODIL_Timoshenko_Elastic_foundation_FSDT_work\\Opensource_1-2\\experiments\\ODL-LBFGS\\results\\odil\\no_foundation\\lbfgs\\data\\nonlinear_attempts.csv"
+}
