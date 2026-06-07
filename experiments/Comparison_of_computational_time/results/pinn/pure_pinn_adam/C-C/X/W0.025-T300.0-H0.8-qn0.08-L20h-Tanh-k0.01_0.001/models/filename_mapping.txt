@@ -1,0 +1,2 @@
+Lw_db09d74afccd.pth -> Linearw_W_0.025_T_300.0_H_0.8_qn0.08_Tanh_k1_0.01_k2_0.001.pth
+NLw_db09d74afccd.pth -> Nonlinearw_W_0.025_T_300.0_H_0.8_qn0.08_Tanh_k1_0.01_k2_0.001.pth
