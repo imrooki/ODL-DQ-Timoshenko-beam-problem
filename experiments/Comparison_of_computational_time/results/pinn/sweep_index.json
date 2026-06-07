@@ -1,0 +1,27 @@
+{
+  "total_elapsed_s": 7976.74138712883,
+  "runs": [
+    {
+      "scenario": "with_foundation",
+      "k1": 0.01,
+      "k2": 0.001,
+      "optimizer": "adam",
+      "script_name": "pure_pinn_adam",
+      "success": true,
+      "skipped": false,
+      "elapsed_s": 4021.276669740677,
+      "error": null
+    },
+    {
+      "scenario": "no_foundation",
+      "k1": 0.0,
+      "k2": 0.0,
+      "optimizer": "adam",
+      "script_name": "pure_pinn_adam",
+      "success": true,
+      "skipped": false,
+      "elapsed_s": 3955.3396315574646,
+      "error": null
+    }
+  ]
+}
