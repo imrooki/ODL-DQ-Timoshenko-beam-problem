@@ -1,0 +1,157 @@
+[one_start] cmd=['C:\\Install_Path\\Anaconda3\\envs\\ml\\python.exe', 'run_odil.py']
+[one_start] cwd=D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\odil
+[one_start] timestamp=2026-06-06T23:32:05
+[one_start] ------------------------------------------------------------
+D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\utils\gpu_monitor.py:16: UserWarning: pynvml not installed, will use PyTorch built-in GPU monitoring
+  warnings.warn("pynvml not installed, will use PyTorch built-in GPU monitoring")
+========================================================================
+ODIL sweep (DQ N=13, C-C, X-distribution, q=-0.08)
+========================================================================
+  scenarios = ['with_foundation', 'no_foundation']
+  optimizers = ['levenberg-marquardt', 'lbfgs', 'gauss-newton']
+  results -> D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\results\odil
+  material: a11=1.4815, b11=3.8515e-17, d11=0.1640, a55=0.7694, lambda=20.0
+========================================================================
+
+########################################################################
+# ODIL  scenario=with_foundation  optimizer=levenberg-marquardt
+#       k1=0.01, k2=0.001
+#       max_iter_linear=150, max_iter_nonlinear=300
+#       use_linear_as_initial=True, num_solution_attempts=3
+########################################################################
+D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\modules\dq_core.py:375: UserWarning: GPU acceleration module unavailable, falling back to CPU computation
+  warnings.warn("GPU acceleration module unavailable, falling back to CPU computation")
+D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\modules\dq_core.py:151: UserWarning: First derivative matrix condition number too large: 4.28e+16
+  warnings.warn(f"First derivative matrix condition number too large: {cond_A:.2e}")
+D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\modules\dq_core.py:215: UserWarning: Condition number severely large - A: 4.28e+16, B: 5.58e+16
+  warnings.warn(info['warning'])
+[linear] solving...
+
+[Solver] Optimizer actually used: levenberg-marquardt
+[linear] w_max = 4.683401e-01, ||R_PDE|| = 6.738e-08, iters = 4, time = 0.48 s
+[nonlinear] solving (strategic multi-attempt)...
+
+[Solver] Optimizer actually used: levenberg-marquardt
+    [attempt 1/3] iters=     5  time=     0.10 s  final_loss=1.644e-23  w_max=0.428953  valid=True
+
+[Solver] Optimizer actually used: levenberg-marquardt
+    [attempt 2/3] iters=     5  time=     0.10 s  final_loss=1.644e-23  w_max=0.428953  valid=True
+
+[Solver] Optimizer actually used: levenberg-marquardt
+    [attempt 3/3] iters=     5  time=     0.10 s  final_loss=1.644e-23  w_max=0.428953  valid=True
+[nonlinear] w_max = 4.289527e-01, ||R_PDE|| = 5.734e-12, iters = 5, time = 0.31 s
+
+########################################################################
+# ODIL  scenario=with_foundation  optimizer=lbfgs
+#       k1=0.01, k2=0.001
+#       max_iter_linear=30000, max_iter_nonlinear=50000
+#       use_linear_as_initial=True, num_solution_attempts=3
+########################################################################
+[linear] solving...
+
+[Solver] Optimizer actually used: lbfgs
+[linear] w_max = 4.683402e-01, ||R_PDE|| = 5.179e-08, iters = 340, time = 4.80 s
+[nonlinear] solving (strategic multi-attempt)...
+
+[Solver] Optimizer actually used: lbfgs
+    [attempt 1/3] iters= 27570  time=   470.76 s  final_loss=5.790e-10  w_max=0.428953  valid=True
+
+[Solver] Optimizer actually used: lbfgs
+    [attempt 2/3] iters= 15261  time=   263.91 s  final_loss=5.115e-02  w_max=0.423584  valid=True
+
+[Solver] Optimizer actually used: lbfgs
+    [attempt 3/3] iters= 24629  time=   426.94 s  final_loss=5.790e-10  w_max=0.428953  valid=True
+[nonlinear] w_max = 4.289526e-01, ||R_PDE|| = 3.889e-08, iters = 24629, time = 1161.61 s
+
+########################################################################
+# ODIL  scenario=with_foundation  optimizer=gauss-newton
+#       k1=0.01, k2=0.001
+#       max_iter_linear=100, max_iter_nonlinear=200
+#       use_linear_as_initial=True, num_solution_attempts=3
+########################################################################
+[linear] solving...
+
+[Solver] Optimizer actually used: gauss-newton
+[linear] w_max = 4.683403e-01, ||R_PDE|| = 1.065e-11, iters = 47, time = 0.44 s
+[nonlinear] solving (strategic multi-attempt)...
+
+[Solver] Optimizer actually used: gauss-newton
+    [attempt 1/3] iters=    45  time=     0.43 s  final_loss=1.864e-22  w_max=0.428953  valid=True
+
+[Solver] Optimizer actually used: gauss-newton
+    [attempt 2/3] iters=    45  time=     0.43 s  final_loss=1.864e-22  w_max=0.428953  valid=True
+
+[Solver] Optimizer actually used: gauss-newton
+    [attempt 3/3] iters=    45  time=     0.43 s  final_loss=1.864e-22  w_max=0.428953  valid=True
+[nonlinear] w_max = 4.289527e-01, ||R_PDE|| = 1.365e-11, iters = 45, time = 1.29 s
+
+########################################################################
+# ODIL  scenario=no_foundation  optimizer=levenberg-marquardt
+#       k1=0.0, k2=0.0
+#       max_iter_linear=150, max_iter_nonlinear=300
+#       use_linear_as_initial=True, num_solution_attempts=3
+########################################################################
+[linear] solving...
+
+[Solver] Optimizer actually used: levenberg-marquardt
+[linear] w_max = 5.211267e-01, ||R_PDE|| = 1.257e-07, iters = 4, time = 0.12 s
+[nonlinear] solving (strategic multi-attempt)...
+
+[Solver] Optimizer actually used: levenberg-marquardt
+    [attempt 1/3] iters=     5  time=     0.13 s  final_loss=1.342e-22  w_max=0.465201  valid=True
+
+[Solver] Optimizer actually used: levenberg-marquardt
+    [attempt 2/3] iters=     5  time=     0.13 s  final_loss=1.342e-22  w_max=0.465201  valid=True
+
+[Solver] Optimizer actually used: levenberg-marquardt
+    [attempt 3/3] iters=     5  time=     0.13 s  final_loss=1.342e-22  w_max=0.465201  valid=True
+[nonlinear] w_max = 4.652009e-01, ||R_PDE|| = 1.638e-11, iters = 5, time = 0.39 s
+
+########################################################################
+# ODIL  scenario=no_foundation  optimizer=lbfgs
+#       k1=0.0, k2=0.0
+#       max_iter_linear=30000, max_iter_nonlinear=50000
+#       use_linear_as_initial=True, num_solution_attempts=3
+########################################################################
+[linear] solving...
+
+[Solver] Optimizer actually used: lbfgs
+[linear] w_max = 5.211269e-01, ||R_PDE|| = 5.297e-08, iters = 347, time = 4.28 s
+[nonlinear] solving (strategic multi-attempt)...
+
+[Solver] Optimizer actually used: lbfgs
+    [attempt 1/3] iters= 18141  time=   289.09 s  final_loss=6.782e-10  w_max=0.465201  valid=True
+
+[Solver] Optimizer actually used: lbfgs
+    [attempt 2/3] iters=   946  time=    12.30 s  final_loss=6.782e-10  w_max=0.465201  valid=True
+
+[Solver] Optimizer actually used: lbfgs
+    [attempt 3/3] iters= 12569  time=   197.37 s  final_loss=2.175e-09  w_max=0.465492  valid=True
+[nonlinear] w_max = 4.652008e-01, ||R_PDE|| = 4.531e-08, iters = 18141, time = 498.77 s
+
+########################################################################
+# ODIL  scenario=no_foundation  optimizer=gauss-newton
+#       k1=0.0, k2=0.0
+#       max_iter_linear=100, max_iter_nonlinear=200
+#       use_linear_as_initial=True, num_solution_attempts=3
+########################################################################
+[linear] solving...
+
+[Solver] Optimizer actually used: gauss-newton
+[linear] w_max = 5.211270e-01, ||R_PDE|| = 8.606e-11, iters = 47, time = 0.44 s
+[nonlinear] solving (strategic multi-attempt)...
+
+[Solver] Optimizer actually used: gauss-newton
+    [attempt 1/3] iters=    45  time=     0.46 s  final_loss=1.661e-21  w_max=0.465201  valid=True
+
+[Solver] Optimizer actually used: gauss-newton
+    [attempt 2/3] iters=    45  time=     0.47 s  final_loss=1.661e-21  w_max=0.465201  valid=True
+
+[Solver] Optimizer actually used: gauss-newton
+    [attempt 3/3] iters=    45  time=     0.46 s  final_loss=1.661e-21  w_max=0.465201  valid=True
+[nonlinear] w_max = 4.652009e-01, ||R_PDE|| = 4.076e-11, iters = 45, time = 1.39 s
+
+========================================================================
+ODIL sweep finished in 1674.6 s
+Index: D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\results\odil\sweep_index.json
+========================================================================

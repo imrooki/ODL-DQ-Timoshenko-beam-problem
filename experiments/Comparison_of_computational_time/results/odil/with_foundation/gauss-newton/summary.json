@@ -1,0 +1,55 @@
+{
+  "scenario": "with_foundation",
+  "k1": 0.01,
+  "k2": 0.001,
+  "optimizer": "gauss-newton",
+  "lr": 1.0,
+  "max_iter_linear": 100,
+  "max_iter_nonlinear": 200,
+  "linear": {
+    "w_max": 0.4683402729878882,
+    "R_PDE_norm": 1.0652573035048205e-11,
+    "iterations": 47,
+    "final_loss": 1.1347731226703614e-22,
+    "elapsed_s": 0.4403095245361328
+  },
+  "nonlinear": {
+    "w_max": 0.4289526660399755,
+    "R_PDE_norm": 1.365200224793248e-11,
+    "iterations": 45,
+    "final_loss": 1.8637716537755347e-22,
+    "elapsed_s": 1.2903387546539307
+  },
+  "nonlinear_attempts": [
+    {
+      "attempt": 1,
+      "iterations": 45,
+      "elapsed_s": 0.4272348880767822,
+      "final_loss": 1.8637716537755347e-22,
+      "w_max": 0.4289526660399755,
+      "physical_valid": true,
+      "selected": true
+    },
+    {
+      "attempt": 2,
+      "iterations": 45,
+      "elapsed_s": 0.43033671379089355,
+      "final_loss": 1.8637716537755347e-22,
+      "w_max": 0.4289526660399755,
+      "physical_valid": true,
+      "selected": false
+    },
+    {
+      "attempt": 3,
+      "iterations": 45,
+      "elapsed_s": 0.4308338165283203,
+      "final_loss": 1.8637716537755347e-22,
+      "w_max": 0.4289526660399755,
+      "physical_valid": true,
+      "selected": false
+    }
+  ],
+  "displacement_csv": "D:\\Desktop\\Work_of_PhD\\Work_2\\ODIL_Timoshenko_Elastic_foundation_FSDT_work\\Opensource_1-2\\experiments\\Comparison_of_computational_time\\results\\odil\\with_foundation\\gauss-newton\\data\\displacement.csv",
+  "loss_history_csv": "D:\\Desktop\\Work_of_PhD\\Work_2\\ODIL_Timoshenko_Elastic_foundation_FSDT_work\\Opensource_1-2\\experiments\\Comparison_of_computational_time\\results\\odil\\with_foundation\\gauss-newton\\data\\loss_history.csv",
+  "nonlinear_attempts_csv": "D:\\Desktop\\Work_of_PhD\\Work_2\\ODIL_Timoshenko_Elastic_foundation_FSDT_work\\Opensource_1-2\\experiments\\Comparison_of_computational_time\\results\\odil\\with_foundation\\gauss-newton\\data\\nonlinear_attempts.csv"
+}

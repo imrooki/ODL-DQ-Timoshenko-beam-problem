@@ -1,0 +1,23 @@
+[one_start] cmd=['C:\\Install_Path\\Anaconda3\\envs\\ml\\python.exe', 'compare.py']
+[one_start] cwd=D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time
+[one_start] timestamp=2026-06-07T00:00:02
+[one_start] ------------------------------------------------------------
+========================================================================
+comparison: PINN vs ODIL
+========================================================================
+[ok] Comparison CSV : D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\results\comparison_table.csv
+[ok] Comparison MD  : D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\results\comparison_table.md
+[ok] Plot saved: D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\results\plots\w_overlay_linear_with_foundation.png
+[ok] Plot saved: D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\results\plots\w_overlay_nonlinear_with_foundation.png
+[ok] Plot saved: D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\results\plots\loss_trajectory_with_foundation.png
+[ok] Plot saved: D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\results\plots\w_overlay_linear_no_foundation.png
+[ok] Plot saved: D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\results\plots\w_overlay_nonlinear_no_foundation.png
+[ok] Plot saved: D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\results\plots\loss_trajectory_no_foundation.png
+[ok] Wall-time bar  : D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\results\plots\wall_time_bar.png
+
+--------------------------------------------------------------------------------
+Total wall-time summary:
+--------------------------------------------------------------------------------
+  with_foundation     PINN-Adam=4021.3s  ODIL-LM=0.8s  ODIL-LBFGS=1166.4s  ODIL-GN=1.7s
+  no_foundation       PINN-Adam=3955.3s  ODIL-LM=0.5s  ODIL-LBFGS=503.0s  ODIL-GN=1.8s
+--------------------------------------------------------------------------------

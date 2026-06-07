@@ -1,0 +1,11 @@
+[one_start] cmd=['C:\\Python313\\python.exe', 'run_pinn.py']
+[one_start] cwd=D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\pinn
+[one_start] timestamp=2026-06-06T21:18:49
+[one_start] ------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\pinn\run_pinn.py", line 51, in <module>
+    from utils.training_core import run_training_core, validate_params_dict  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\pinn\utils\training_core.py", line 38, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'

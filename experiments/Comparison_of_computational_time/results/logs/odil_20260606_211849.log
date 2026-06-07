@@ -1,0 +1,8 @@
+[one_start] cmd=['C:\\Python313\\python.exe', 'run_odil.py']
+[one_start] cwd=D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\odil
+[one_start] timestamp=2026-06-06T21:18:49
+[one_start] ------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Desktop\Work_of_PhD\Work_2\ODIL_Timoshenko_Elastic_foundation_FSDT_work\Opensource_1-2\experiments\Comparison_of_computational_time\odil\run_odil.py", line 40, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'

@@ -1,0 +1,55 @@
+{
+  "scenario": "with_foundation",
+  "k1": 0.01,
+  "k2": 0.001,
+  "optimizer": "levenberg-marquardt",
+  "lr": 1.0,
+  "max_iter_linear": 150,
+  "max_iter_nonlinear": 300,
+  "linear": {
+    "w_max": 0.4683401009157067,
+    "R_PDE_norm": 6.73817073302073e-08,
+    "iterations": 4,
+    "final_loss": 2.270147241366856e-15,
+    "elapsed_s": 0.4796919822692871
+  },
+  "nonlinear": {
+    "w_max": 0.42895266602417653,
+    "R_PDE_norm": 5.733578503183715e-12,
+    "iterations": 5,
+    "final_loss": 1.6436961226085204e-23,
+    "elapsed_s": 0.3126966953277588
+  },
+  "nonlinear_attempts": [
+    {
+      "attempt": 1,
+      "iterations": 5,
+      "elapsed_s": 0.10270905494689941,
+      "final_loss": 1.6436961226085204e-23,
+      "w_max": 0.42895266602417653,
+      "physical_valid": true,
+      "selected": true
+    },
+    {
+      "attempt": 2,
+      "iterations": 5,
+      "elapsed_s": 0.10337209701538086,
+      "final_loss": 1.6436961226085204e-23,
+      "w_max": 0.42895266602417653,
+      "physical_valid": true,
+      "selected": false
+    },
+    {
+      "attempt": 3,
+      "iterations": 5,
+      "elapsed_s": 0.1039586067199707,
+      "final_loss": 1.6436961226085204e-23,
+      "w_max": 0.42895266602417653,
+      "physical_valid": true,
+      "selected": false
+    }
+  ],
+  "displacement_csv": "D:\\Desktop\\Work_of_PhD\\Work_2\\ODIL_Timoshenko_Elastic_foundation_FSDT_work\\Opensource_1-2\\experiments\\Comparison_of_computational_time\\results\\odil\\with_foundation\\levenberg-marquardt\\data\\displacement.csv",
+  "loss_history_csv": "D:\\Desktop\\Work_of_PhD\\Work_2\\ODIL_Timoshenko_Elastic_foundation_FSDT_work\\Opensource_1-2\\experiments\\Comparison_of_computational_time\\results\\odil\\with_foundation\\levenberg-marquardt\\data\\loss_history.csv",
+  "nonlinear_attempts_csv": "D:\\Desktop\\Work_of_PhD\\Work_2\\ODIL_Timoshenko_Elastic_foundation_FSDT_work\\Opensource_1-2\\experiments\\Comparison_of_computational_time\\results\\odil\\with_foundation\\levenberg-marquardt\\data\\nonlinear_attempts.csv"
+}
