@@ -1,0 +1,57 @@
+2026-06-07 14:32:25,111 | ODIL-C-C | INFO | info | [GPU Monitor] GPU performance monitoring enabled
+2026-06-07 14:32:25,480 | ODIL-C-C | INFO | optimization_start | ============================================================
+2026-06-07 14:32:25,481 | ODIL-C-C | INFO | optimization_start | Starting linear solving
+2026-06-07 14:32:25,481 | ODIL-C-C | INFO | optimization_start | Boundary condition: C-C | Number of nodes: 15 | Optimizer: levenberg-marquardt
+2026-06-07 14:32:25,481 | ODIL-C-C | INFO | optimization_start | Constraint type: hard constraint
+2026-06-07 14:32:25,481 | ODIL-C-C | INFO | optimization_start | ============================================================
+2026-06-07 14:32:25,481 | ODIL-C-C | INFO | info | [Levenberg-Marquardt] Starting optimization...
+2026-06-07 14:32:25,482 | ODIL-C-C | INFO | info | [Params] max_iter: 150, tol: 1.00e-08, initial damping: 1.00e-03
+2026-06-07 14:32:25,529 | ODIL-C-C | INFO | iteration | Iter     0 | Loss: 1.834e+04  | Grad: 1.00e-03
+2026-06-07 14:32:25,760 | ODIL-C-C | INFO | convergence | ------------------------------------------------------------
+2026-06-07 14:32:25,760 | ODIL-C-C | INFO | convergence | Optimization converged: gradient converged
+2026-06-07 14:32:25,760 | ODIL-C-C | INFO | convergence | Final loss: 1.054e-14
+2026-06-07 14:32:25,760 | ODIL-C-C | INFO | convergence | Total iterations: 3
+2026-06-07 14:32:25,760 | ODIL-C-C | INFO | convergence | Elapsed time: 0.28 s
+2026-06-07 14:32:25,760 | ODIL-C-C | INFO | convergence | ============================================================
+2026-06-07 14:32:25,844 | ODIL-C-C | INFO | optimization_start | ============================================================
+2026-06-07 14:32:25,844 | ODIL-C-C | INFO | optimization_start | Starting nonlinear solving
+2026-06-07 14:32:25,844 | ODIL-C-C | INFO | optimization_start | Boundary condition: C-C | Number of nodes: 15 | Optimizer: levenberg-marquardt
+2026-06-07 14:32:25,844 | ODIL-C-C | INFO | optimization_start | Constraint type: hard constraint
+2026-06-07 14:32:25,844 | ODIL-C-C | INFO | optimization_start | ============================================================
+2026-06-07 14:32:25,844 | ODIL-C-C | INFO | info | [Levenberg-Marquardt] Starting optimization...
+2026-06-07 14:32:25,844 | ODIL-C-C | INFO | info | [Params] max_iter: 300, tol: 1.00e-08, initial damping: 1.00e-03
+2026-06-07 14:32:25,846 | ODIL-C-C | INFO | iteration | Iter     0 | Loss: 1.260e+00 ↓ | Grad: 1.00e-03
+2026-06-07 14:32:25,871 | ODIL-C-C | INFO | convergence | ------------------------------------------------------------
+2026-06-07 14:32:25,871 | ODIL-C-C | INFO | convergence | Optimization converged: residual converged
+2026-06-07 14:32:25,871 | ODIL-C-C | INFO | convergence | Final loss: 3.015e-22
+2026-06-07 14:32:25,871 | ODIL-C-C | INFO | convergence | Total iterations: 4
+2026-06-07 14:32:25,871 | ODIL-C-C | INFO | convergence | Elapsed time: 0.03 s
+2026-06-07 14:32:25,871 | ODIL-C-C | INFO | convergence | ============================================================
+2026-06-07 14:32:25,966 | ODIL-C-C | INFO | optimization_start | ============================================================
+2026-06-07 14:32:25,966 | ODIL-C-C | INFO | optimization_start | Starting nonlinear solving
+2026-06-07 14:32:25,967 | ODIL-C-C | INFO | optimization_start | Boundary condition: C-C | Number of nodes: 15 | Optimizer: levenberg-marquardt
+2026-06-07 14:32:25,967 | ODIL-C-C | INFO | optimization_start | Constraint type: hard constraint
+2026-06-07 14:32:25,967 | ODIL-C-C | INFO | optimization_start | ============================================================
+2026-06-07 14:32:25,967 | ODIL-C-C | INFO | info | [Levenberg-Marquardt] Starting optimization...
+2026-06-07 14:32:25,967 | ODIL-C-C | INFO | info | [Params] max_iter: 300, tol: 1.00e-08, initial damping: 1.00e-03
+2026-06-07 14:32:25,968 | ODIL-C-C | INFO | iteration | Iter     0 | Loss: 1.260e+00 → | Grad: 1.00e-03
+2026-06-07 14:32:25,993 | ODIL-C-C | INFO | convergence | ------------------------------------------------------------
+2026-06-07 14:32:25,993 | ODIL-C-C | INFO | convergence | Optimization converged: residual converged
+2026-06-07 14:32:25,993 | ODIL-C-C | INFO | convergence | Final loss: 3.015e-22
+2026-06-07 14:32:25,993 | ODIL-C-C | INFO | convergence | Total iterations: 4
+2026-06-07 14:32:25,993 | ODIL-C-C | INFO | convergence | Elapsed time: 0.03 s
+2026-06-07 14:32:25,993 | ODIL-C-C | INFO | convergence | ============================================================
+2026-06-07 14:32:26,077 | ODIL-C-C | INFO | optimization_start | ============================================================
+2026-06-07 14:32:26,077 | ODIL-C-C | INFO | optimization_start | Starting nonlinear solving
+2026-06-07 14:32:26,077 | ODIL-C-C | INFO | optimization_start | Boundary condition: C-C | Number of nodes: 15 | Optimizer: levenberg-marquardt
+2026-06-07 14:32:26,078 | ODIL-C-C | INFO | optimization_start | Constraint type: hard constraint
+2026-06-07 14:32:26,078 | ODIL-C-C | INFO | optimization_start | ============================================================
+2026-06-07 14:32:26,078 | ODIL-C-C | INFO | info | [Levenberg-Marquardt] Starting optimization...
+2026-06-07 14:32:26,078 | ODIL-C-C | INFO | info | [Params] max_iter: 300, tol: 1.00e-08, initial damping: 1.00e-03
+2026-06-07 14:32:26,079 | ODIL-C-C | INFO | iteration | Iter     0 | Loss: 1.260e+00 → | Grad: 1.00e-03
+2026-06-07 14:32:26,109 | ODIL-C-C | INFO | convergence | ------------------------------------------------------------
+2026-06-07 14:32:26,110 | ODIL-C-C | INFO | convergence | Optimization converged: residual converged
+2026-06-07 14:32:26,110 | ODIL-C-C | INFO | convergence | Final loss: 3.015e-22
+2026-06-07 14:32:26,110 | ODIL-C-C | INFO | convergence | Total iterations: 4
+2026-06-07 14:32:26,110 | ODIL-C-C | INFO | convergence | Elapsed time: 0.03 s
+2026-06-07 14:32:26,110 | ODIL-C-C | INFO | convergence | ============================================================

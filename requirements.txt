@@ -1,0 +1,23 @@
+# ODIL-FSDT Timoshenko beam solver — Python 3.13 (conda)
+# Install:  pip install -r requirements.txt
+#
+# torch is pinned to the CUDA 12.8 GPU wheel (2.8.0+cu128), fetched from the
+# PyTorch CUDA 12.8 index below. This is intended for Linux/Windows with NVIDIA GPU.
+# For CPU-only install, remove the --extra-index-url line and use torch==2.8.0,
+# or install from the PyTorch CPU index if you want to force CPU wheels.
+
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+# Core (main.py)
+torch==2.8.0+cu128
+numpy==2.3.2
+pandas==2.3.1
+matplotlib==3.10.5
+
+# Comparison study (experiments/Comparison_of_computational_time)
+scipy==1.16.1
+psutil==7.0.0
+pyDOE==0.3.8
+
+# Optional: NVIDIA GPU telemetry (auto-disabled if absent)
+# pynvml
