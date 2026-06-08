@@ -10,13 +10,15 @@ Usage (after conda activate claude_test):
     python evaluate_pinn_strong_residual.py
 
 Output:
-    Comparison_of_computational_time/results/pinn_strong_form_residual.csv
-    Console prints a side-by-side comparison table of the 4 PINN values and the 4 ODIL final_loss values
+    Comparison_of_computational_time/results/pinn_vs_odil_strong_residual.csv
+    Console prints a side-by-side comparison table: the PINN values vs the ODIL
+    values, all evaluated under the same strong-form residual metric ||R_PDE||.
 """
 
 from __future__ import annotations
 
 import importlib.util
+import json
 import os
 import sys
 from pathlib import Path
@@ -93,7 +95,7 @@ SCENARIOS = {
     "no_foundation": {
         "k1": 0.0, "k2": 0.0,
         "pinn_model_dir": PINN_BASE / "W0.025-T300.0-H0.8-qn0.08-L20h-Tanh" / "models",
-        "pinn_linear_glob": "Linearw_*.pth",
+        "pinn_linear_glob": "Lw_*.pth",
         "pinn_nonlinear_glob": "NLw_*.pth",
         "odil_dir": ODIL_BASE / "no_foundation",
     },
@@ -104,13 +106,6 @@ ODIL_OPTIMIZERS = [
     ("gauss-newton",        "GN"),
     ("lbfgs",               "L-BFGS"),
 ]
-
-# Filename stem (used for DQ_<stem>_<mode>_loss.csv)
-ODIL_OPT_STEM = {
-    "levenberg-marquardt": "levenbergmarquardt",
-    "gauss-newton":        "gaussnewton",
-    "lbfgs":               "lbfgs",
-}
 
 
 # ============================================================================
@@ -161,34 +156,25 @@ def load_odil_displacement(scen_dir: Path, opt_name: str, mode: str,
     return u, w, phi
 
 
-def load_odil_loss_history_endpoint(scen_dir: Path, opt_name: str, mode: str) -> dict:
+def _read_summary_r_pde_norm(scen_dir: Path, opt_name: str, mode: str):
     """
-    Read the training endpoint (last row) from DQ_<opt_stem>_<mode>_loss.csv, returning:
-        {"epoch", "loss", "pde_loss", "bc_loss", "n_rows"}
-
-    Notes on data provenance:
-    - When efficiency/test_efficiency_3methods.py writes the CSV, the values
-      `pde_loss = loss * 0.9` and `bc_loss = loss * 0.1` are an **artificial 0.9/0.1 split**,
-      not the true internal components of the solver;
-    - However, the ODIL solver uses a hard constraint (inject_dirichlet) under the
-      C-C boundary condition, so in practice loss_bc = 0 and reg_loss ~ 1e-12, hence
-      the training `loss ~ loss_pde`;
-    - ||R_PDE||_2 should be taken as sqrt(loss) (the square root of the total loss directly),
-      not sqrt(0.9 * loss).
+    Best-effort read of the R_PDE_norm precomputed by run_odil.py from
+    <scen>/<opt>/summary.json. Used only as a runtime consistency check against
+    the value this script recomputes from displacement.csv -- it should match,
+    because run_odil.py uses the identical TimoshenkoBeamResiduals + boundary
+    mask + sqrt(sum of squares) formula. Returns None if the file or the
+    summary[mode]["R_PDE_norm"] field is absent (the check is informational,
+    never fatal).
     """
-    stem = ODIL_OPT_STEM[opt_name]
-    p = scen_dir / opt_name / f"DQ_{stem}_{mode}_loss.csv"
+    p = scen_dir / opt_name / "summary.json"
     if not p.exists():
-        raise FileNotFoundError(f"No ODIL loss CSV: {p}")
-    df = pd.read_csv(_long_path(p))
-    last = df.iloc[-1]
-    return {
-        "epoch": int(last["epoch"]),
-        "loss": float(last["loss"]),
-        "pde_loss": float(last["pde_loss"]),  # Spurious 0.9 * loss, do not use directly
-        "bc_loss": float(last["bc_loss"]),    # Spurious 0.1 * loss, do not use directly
-        "n_rows": int(len(df)),
-    }
+        return None
+    with open(_long_path(p), "r", encoding="utf-8") as fh:
+        data = json.load(fh)
+    block = data.get(mode)
+    if not isinstance(block, dict):
+        return None
+    return block.get("R_PDE_norm")
 
 
 def pinn_predict_at_nodes(model: torch.nn.Module, x: torch.Tensor) -> tuple:
@@ -277,39 +263,36 @@ def evaluate(device: torch.device) -> pd.DataFrame:
             print(f"  [PINN-Adam   ] missing pth files in {pinn_dir}")
 
         # ---- (b) ODIL-DQ: 3 optimizers x 2 modes ----
-        # Scheme A (revised): under the C-C boundary condition, the ODIL solver uses the
-        # inject_dirichlet hard constraint, so loss_bc is strictly = 0 and reg_loss ~ 1e-12
-        # is negligible; therefore the training `loss` column equals loss_pde.
-        # ||R_PDE||_2 = sqrt(endpoint loss).
-        # (Do not use the pde_loss column in the DQ csv: that is the spurious 0.9 * loss split from the efficiency test script.)
-        # max|w| is still read from displacement.csv as a sanity check.
+        # Same metric as PINN: load the ODIL displacement field (u, w, phi) from
+        # displacement.csv -- it lives exactly on the 13 Cheb-Lobatto DQ nodes, in
+        # the same ascending order as cheb_lobatto_nodes() -- and run it through the
+        # SAME _compute_residual_norm() used for PINN. This recomputes ||R_PDE||_2
+        # under one identical evaluator and reproduces the R_PDE_norm that
+        # run_odil.py already stored in summary.json (printed as a consistency check).
         odil_dir = scen["odil_dir"]
         for opt_name, opt_label in ODIL_OPTIMIZERS:
             for mode in ("linear", "nonlinear"):
                 try:
-                    ep = load_odil_loss_history_endpoint(odil_dir, opt_name, mode)
+                    u, w, phi = load_odil_displacement(odil_dir, opt_name, mode,
+                                                       device, x.dtype)
                 except FileNotFoundError as e:
                     print(f"  [ODIL-{opt_label:6s}] missing -> {e}")
                     continue
-                total_loss = ep["loss"]  # = loss_pde + 0 (C-C hard BC) + 1e-12 reg ≈ loss_pde
-                r_norm = float(total_loss ** 0.5) if total_loss > 0 else 0.0
 
-                # max|w| from displacement.csv (if available)
-                try:
-                    _u, w, _phi = load_odil_displacement(odil_dir, opt_name, mode,
-                                                         device, x.dtype)
-                    w_max = float(w.abs().max().item())
-                except FileNotFoundError:
-                    w_max = float("nan")
+                r_norm = _compute_residual_norm(u, w, phi, mode, residual_calc)
+                w_max = float(w.abs().max().item())
 
-                print(f"  [ODIL-{opt_label:6s}] {mode:10s} "
-                      f"||R_PDE||=sqrt(loss)={r_norm:.6e}  "
-                      f"max|w|={w_max:.6f}  iter={ep['epoch']} (n_rows={ep['n_rows']})")
+                # Consistency check against the value run_odil.py precomputed.
+                ref = _read_summary_r_pde_norm(odil_dir, opt_name, mode)
+                ref_str = f"{ref:.6e}" if ref is not None else "n/a"
+                print(f"  [ODIL-{opt_label:6s}] {mode:10s} ||R_PDE||={r_norm:.6e}  "
+                      f"max|w|={w_max:.6f}  (summary.json R_PDE_norm={ref_str})  "
+                      f"src=displacement.csv")
                 rows.append({
                     "scenario": scen_name, "k1": k1, "k2": k2,
                     "method": f"ODIL-DQ ({opt_label})", "optimizer": opt_label,
                     "mode": mode,
-                    "source": f"sqrt(loss @ epoch={ep['epoch']}); C-C hard BC -> loss = loss_pde",
+                    "source": "recomputed from displacement.csv (same metric as PINN)",
                     "max_abs_w": w_max,
                     "R_PDE_L2_norm": r_norm,
                 })
