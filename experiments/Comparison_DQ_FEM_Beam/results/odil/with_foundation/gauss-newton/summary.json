@@ -1,0 +1,55 @@
+{
+  "scenario": "with_foundation",
+  "k1": 0.01,
+  "k2": 0.001,
+  "optimizer": "gauss-newton",
+  "lr": 1.0,
+  "max_iter_linear": 100,
+  "max_iter_nonlinear": 200,
+  "init_strategies": [
+    "linear",
+    "random"
+  ],
+  "linear": {
+    "w_max": 0.4683402729878882,
+    "R_PDE_norm": 1.0652573035048205e-11,
+    "iterations": 47,
+    "final_loss": 1.1347731226703614e-22,
+    "elapsed_s": 1.069040298461914
+  },
+  "nonlinear": {
+    "w_max": 0.4289526660399755,
+    "R_PDE_norm": 1.365200224793248e-11,
+    "iterations": 45,
+    "final_loss": 1.8637716537755347e-22,
+    "elapsed_s": 1.0734741687774658
+  },
+  "nonlinear_by_strategy": {
+    "linear": {
+      "w_max": 0.4289526660399755,
+      "R_PDE_norm": 1.365200224793248e-11,
+      "iterations": 45,
+      "final_loss": 1.8637716537755347e-22,
+      "elapsed_s": 1.0734741687774658
+    },
+    "random": {
+      "w_max": 0.4289526659983108,
+      "R_PDE_norm": 7.199187362027524e-12,
+      "iterations": 46,
+      "final_loss": 5.1828298673576815e-23,
+      "elapsed_s": 1.1547822952270508
+    }
+  },
+  "displacement_csv": "solver\\odil\\results\\odil\\with_foundation\\gauss-newton\\data\\displacement.csv",
+  "loss_history_csv": "solver\\odil\\results\\odil\\with_foundation\\gauss-newton\\data\\loss_history.csv",
+  "displacement_csv_by_strategy": {
+    "linear": "solver\\odil\\results\\odil\\with_foundation\\gauss-newton\\data\\displacement_linear.csv",
+    "random": "solver\\odil\\results\\odil\\with_foundation\\gauss-newton\\data\\displacement_random.csv"
+  },
+  "loss_history_csv_by_strategy": {
+    "linear": "solver\\odil\\results\\odil\\with_foundation\\gauss-newton\\data\\loss_history_linear.csv",
+    "random": "solver\\odil\\results\\odil\\with_foundation\\gauss-newton\\data\\loss_history_random.csv"
+  },
+  "nonlinear_attempts": [],
+  "nonlinear_attempts_csv": null
+}

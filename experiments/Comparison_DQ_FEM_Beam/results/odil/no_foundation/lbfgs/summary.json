@@ -1,0 +1,55 @@
+{
+  "scenario": "no_foundation",
+  "k1": 0.0,
+  "k2": 0.0,
+  "optimizer": "lbfgs",
+  "lr": 0.8,
+  "max_iter_linear": 30000,
+  "max_iter_nonlinear": 50000,
+  "init_strategies": [
+    "linear",
+    "random"
+  ],
+  "linear": {
+    "w_max": 0.5211268811834757,
+    "R_PDE_norm": 5.297068412919511e-08,
+    "iterations": 347,
+    "final_loss": 8.440733774890084e-10,
+    "elapsed_s": 8.938486576080322
+  },
+  "nonlinear": {
+    "w_max": 0.46520084020996216,
+    "R_PDE_norm": 4.531477311989992e-08,
+    "iterations": 18141,
+    "final_loss": 6.781551424194251e-10,
+    "elapsed_s": 651.5304329395294
+  },
+  "nonlinear_by_strategy": {
+    "linear": {
+      "w_max": 0.46520084020996216,
+      "R_PDE_norm": 4.531477311989992e-08,
+      "iterations": 18141,
+      "final_loss": 6.781551424194251e-10,
+      "elapsed_s": 651.5304329395294
+    },
+    "random": {
+      "w_max": 0.46520079472587184,
+      "R_PDE_norm": 6.635403989720419e-08,
+      "iterations": 329,
+      "final_loss": 6.781551958697304e-10,
+      "elapsed_s": 11.171101808547974
+    }
+  },
+  "displacement_csv": "solver\\odil\\results\\odil\\no_foundation\\lbfgs\\data\\displacement.csv",
+  "loss_history_csv": "solver\\odil\\results\\odil\\no_foundation\\lbfgs\\data\\loss_history.csv",
+  "displacement_csv_by_strategy": {
+    "linear": "solver\\odil\\results\\odil\\no_foundation\\lbfgs\\data\\displacement_linear.csv",
+    "random": "solver\\odil\\results\\odil\\no_foundation\\lbfgs\\data\\displacement_random.csv"
+  },
+  "loss_history_csv_by_strategy": {
+    "linear": "solver\\odil\\results\\odil\\no_foundation\\lbfgs\\data\\loss_history_linear.csv",
+    "random": "solver\\odil\\results\\odil\\no_foundation\\lbfgs\\data\\loss_history_random.csv"
+  },
+  "nonlinear_attempts": [],
+  "nonlinear_attempts_csv": null
+}
